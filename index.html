@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codeme Solutions | Enterprise Digital Agency & Tech Engineering</title>
+  <meta name="description" content="Codeme Solutions is a premier digital agency specializing in Mobile App Development, Custom Web Design & Development, E-Commerce platforms, Performance Digital Marketing, Enterprise CRM, and ERP Systems.">
+  <meta name="keywords" content="Mobile App Development, Web Development, E-commerce, Digital Marketing, CRM Solutions, ERP Systems, Software Agency">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js for Live CRM & ERP Dashboards -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Background Canvas -->
+  <canvas id="canvas-bg"></canvas>
+  <div class="bg-glow-orb bg-glow-1"></div>
+  <div class="bg-glow-orb bg-glow-2"></div>
+  <div class="bg-glow-orb bg-glow-3"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <img src="assets/codeme-logo-dark.png" alt="CodeMe Logo" class="logo-img logo-dark" />
+        <img src="assets/codeme-logo-light.png" alt="CodeMe Logo" class="logo-img logo-light" />
+      </a>
+
+      <ul class="nav-links">
+        <li><button id="theme-toggle" class="btn theme-toggle">Light / Dark</button></li>
+        <li><a href="#services" class="active">Services</a></li>
+        <li><a href="#demo">CRM &amp; ERP Live Demo</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+        <li><a href="#contact">Contact</a></li>
+        
+        
+      </ul>
+
+      <div class="nav-actions">
+        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-bolt"></i> Enterprise Engineering & Innovation
+        </div>
+        <h1 class="hero-title">
+          Engineering <span class="gradient-text">Next-Gen Digital</span> Experiences & Enterprise Platforms
+        </h1>
+        <p class="hero-description">
+          We transform visionary brands with high-performance mobile apps, bespoke web design, scalable e-commerce, precision digital marketing, and mission-critical enterprise CRM & ERP solutions.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#services" class="btn btn-primary">
+            <span>Explore Services</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#demo" class="btn btn-secondary">
+            <i class="fa-solid fa-play"></i> Watch Live Demo
+          </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="stat-item">
+            <h3>250+</h3>
+            <p>Projects Delivered</p>
+          </div>
+          <div class="stat-item">
+            <h3>99.8%</h3>
+            <p>SLA Client Satisfaction</p>
+          </div>
+          <div class="stat-item">
+            <h3>15+</h3>
+            <p>Global Tech Awards</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-card">
+          <img src="assets/hero.jpg" alt="Codeme Digital Solutions 3D Visual Showcase">
+          
+          <div class="floating-pill pill-1">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <div>
+              <span>iOS & Android</span>
+              <p style="font-size:0.75rem; color:#94a3b8;">Native Flutter & React Native</p>
+            </div>
+          </div>
+
+          <div class="floating-pill pill-2">
+            <i class="fa-solid fa-chart-line"></i>
+            <div>
+              <span>ERP & CRM Analytics</span>
+              <p style="font-size:0.75rem; color:#10b981;">+184% Growth Multiplier</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Section -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-cubes"></i> Our Capabilities</span>
+        <h2 class="section-title">End-to-End Enterprise <span class="gradient-text">Services</span></h2>
+        <p class="section-subtitle">Comprehensive digital solutions built with cutting-edge architectures, robust security, and captivating visual design.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: Mobile App Development -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-mobile-screen"></i>
+          </div>
+          <h3 class="service-title">Mobile App Development</h3>
+          <p class="service-desc">Native iOS, Android, and cross-platform Flutter/React Native mobile applications built for hyper-scalability and intuitive UI/UX.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> iOS & Android Native Architecture</li>
+            <li><i class="fa-solid fa-check"></i> Offline Sync & Biometric Security</li>
+            <li><i class="fa-solid fa-check"></i> Real-time Push Notifications</li>
+          </ul>
+        </div>
+
+        <!-- Service 2: Web Designing & Development -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="service-title">Web Design & Development</h3>
+          <p class="service-desc">Bespoke web applications, modern micro-frontend portals, and stunning responsive websites crafted with glassmorphic aesthetics.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Modern React, Next.js & Vue Engineering</li>
+            <li><i class="fa-solid fa-check"></i> Sub-Second Page Load Optimization</li>
+            <li><i class="fa-solid fa-check"></i> SEO & Accessibility Compliance</li>
+          </ul>
+        </div>
+
+        <!-- Service 3: E-Commerce Development -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+          <h3 class="service-title">E-Commerce Development</h3>
+          <p class="service-desc">High-conversion omnichannel online stores, headless commerce implementations, custom payment gateways, and inventory sync.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Custom Shopify Plus & Headless Commerce</li>
+            <li><i class="fa-solid fa-check"></i> Multi-Currency & Global Checkout</li>
+            <li><i class="fa-solid fa-check"></i> AI Recommendation Engines</li>
+          </ul>
+        </div>
+
+        <!-- Service 4: Digital Marketing -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-bullhorn"></i>
+          </div>
+          <h3 class="service-title">Digital Marketing</h3>
+          <p class="service-desc">Data-driven performance marketing, Search Engine Optimization (SEO), PPC campaigns, social growth, and revenue attribution modeling.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Technical & Programmatic SEO</li>
+            <li><i class="fa-solid fa-check"></i> Target Paid Media & Retargeting</li>
+            <li><i class="fa-solid fa-check"></i> Conversion Rate Optimization (CRO)</li>
+          </ul>
+        </div>
+
+        <!-- Service 5: CRM Solutions -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <h3 class="service-title">CRM Solutions</h3>
+          <p class="service-desc">Tailored Customer Relationship Management platforms with automated sales funnels, lead scoring, and omnichannel support suites.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Visual Sales Pipeline Management</li>
+            <li><i class="fa-solid fa-check"></i> Automated Email & Call Logging</li>
+            <li><i class="fa-solid fa-check"></i> Salesforce, Hubspot & Custom CRM API</li>
+          </ul>
+        </div>
+
+        <!-- Service 6: ERP Systems -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h3 class="service-title">Enterprise ERP Systems</h3>
+          <p class="service-desc">Unified Enterprise Resource Planning modules covering supply chain tracking, automated HR payroll, inventory management, and financial reporting.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Real-time Financial Analytics & Auditing</li>
+            <li><i class="fa-solid fa-check"></i> Automated Supply Chain & Warehouse Sync</li>
+            <li><i class="fa-solid fa-check"></i> Role-Based Access & ISO Compliance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live CRM & ERP Interactive Demo Section -->
+  <section class="demo-section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-desktop"></i> Interactive Platform Suite</span>
+        <h2 class="section-title">Live Interactive <span class="gradient-text">CRM & ERP</span> Dashboard Preview</h2>
+        <p class="section-subtitle">Experience how our enterprise solutions streamline operations, manage customer lifecycles, and provide real-time intelligence.</p>
+      </div>
+
+      <!-- Navigation Tabs for Demo -->
+      <div class="demo-tabs-nav">
+        <button class="demo-tab-btn active" data-tab="tab-crm">
+          <i class="fa-solid fa-kanban"></i> CRM Sales Pipeline
+        </button>
+        <button class="demo-tab-btn" data-tab="tab-analytics">
+          <i class="fa-solid fa-chart-area"></i> ERP Financial Analytics
+        </button>
+        <button class="demo-tab-btn" data-tab="tab-inventory">
+          <i class="fa-solid fa-boxes-stacked"></i> Warehouse & HR Operations
+        </button>
+      </div>
+
+      <!-- Interactive Simulated Browser Window -->
+      <div class="demo-window">
+        <div class="demo-window-header">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="demo-window-title">https://enterprise-suite.auratech.io/dashboard</span>
+        </div>
+
+        <div class="demo-content-body">
+          <!-- Tab 1: CRM Sales Kanban -->
+          <div class="demo-tab-content active" id="tab-crm">
+            <div class="kanban-grid">
+              <div class="kanban-column">
+                <div class="kanban-column-header">
+                  <h4>New Leads</h4>
+                  <span class="kanban-badge">12</span>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-title">Apex Global Logistics</div>
+                  <div class="kanban-card-val">$120,000</div>
+                  <p style="font-size:0.75rem; color:#94a3b8; margin-top:4px;">Lead Owner: Sarah M.</p>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-title">Nexus Health Systems</div>
+                  <div class="kanban-card-val">$85,000</div>
+                  <p style="font-size:0.75rem; color:#94a3b8; margin-top:4px;">Lead Owner: David K.</p>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <div class="kanban-column-header">
+                  <h4>In Qualification</h4>
+                  <span class="kanban-badge">8</span>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-title">Vortex E-Commerce</div>
+                  <div class="kanban-card-val">$240,000</div>
+                  <p style="font-size:0.75rem; color:#94a3b8; margin-top:4px;">Lead Owner: Elena R.</p>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <div class="kanban-column-header">
+                  <h4>Proposal Sent</h4>
+                  <span class="kanban-badge">5</span>
+                </div>
+                <div class="kanban-card">
+                  <div class="kanban-card-title">Horizon Financial Corp</div>
+                  <div class="kanban-card-val">$450,000</div>
+                  <p style="font-size:0.75rem; color:#94a3b8; margin-top:4px;">Lead Owner: Alex T.</p>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <div class="kanban-column-header">
+                  <h4>Closed Won</h4>
+                  <span class="kanban-badge">18</span>
+                </div>
+                <div class="kanban-card" style="border-left: 3px solid #10b981;">
+                  <div class="kanban-card-title">Starlight Retail ERP</div>
+                  <div class="kanban-card-val">$320,000</div>
+                  <p style="font-size:0.75rem; color:#10b981; margin-top:4px;">SLA Signed & Active</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: ERP Financial Chart -->
+          <div class="demo-tab-content" id="tab-analytics">
+            <div class="chart-container-box">
+              <canvas id="analyticsChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Tab 3: Inventory & HR Operations -->
+          <div class="demo-tab-content" id="tab-inventory">
+            <div class="inventory-grid">
+              <div class="inventory-card">
+                <h4 style="color:#06b6d4; margin-bottom:10px;"><i class="fa-solid fa-warehouse"></i> Warehouse Stock</h4>
+                <h2 style="font-size:2rem;">98.4%</h2>
+                <p class="inventory-desc">Automated reorder triggers active across 14 hubs.</p>
+              </div>
+
+              <div class="inventory-card">
+                <h4 style="color:#a855f7; margin-bottom:10px;"><i class="fa-solid fa-user-check"></i> HR & Payroll</h4>
+                <h2 style="font-size:2rem;">1,240</h2>
+                <p class="inventory-desc">Active employees onboarded with automated biometric attendance.</p>
+              </div>
+
+              <div class="inventory-card">
+                <h4 style="color:#6366f1; margin-bottom:10px;"><i class="fa-solid fa-server"></i> System Uptime</h4>
+                <h2 style="font-size:2rem;">99.99%</h2>
+                <p class="inventory-desc">ISO 27001 certified cloud infrastructure.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Portfolio / Case Studies -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-trophy"></i> Client Success Stories</span>
+        <h2 class="section-title">Featured Case <span class="gradient-text">Studies</span></h2>
+        <p class="section-subtitle">Real-world impact generated for fintech, healthcare, retail, and enterprise clients worldwide.</p>
+      </div>
+
+      <div class="portfolio-filter">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+        <button class="filter-btn" data-filter="web">Web & E-Commerce</button>
+        <button class="filter-btn" data-filter="enterprise">CRM & ERP</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Case Study 1 -->
+        <div class="portfolio-card" data-category="mobile">
+          <img src="assets/mobile_app.jpg" alt="Aura Fintech App Showcase" class="portfolio-img">
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Mobile App Development</span>
+            <h3 class="portfolio-title">Aura Mobile Banking & Wealth Hub</h3>
+            <p style="font-size:0.875rem; color:#94a3b8;">High-frequency trading app with biometric auth and real-time portfolio tracking.</p>
+          </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="portfolio-card" data-category="enterprise">
+          <img src="assets/erp_crm.jpg" alt="Enterprise ERP CRM Interface" class="portfolio-img">
+          <div class="portfolio-info">
+            <span class="portfolio-cat">Enterprise ERP & CRM</span>
+            <h3 class="portfolio-title">Integra Global Supply Chain ERP</h3>
+            <p style="font-size:0.875rem; color:#94a3b8;">Unified ERP connecting 40+ logistics warehouses with automated sales lead scoring.</p>
+          </div>
+        </div>
+
+        <!-- Case Study 3 -->
+        <div class="portfolio-card" data-category="web">
+          <img src="assets/hero.jpg" alt="E-Commerce Headless Storefront" class="portfolio-img">
+          <div class="portfolio-info">
+            <span class="portfolio-cat">E-Commerce & Web Dev</span>
+            <h3 class="portfolio-title">Starlight Luxury E-Commerce</h3>
+            <p style="font-size:0.875rem; color:#94a3b8;">Headless Next.js storefront resulting in +210% increase in checkout conversions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="container clients-section">
+    <div class="section-header">
+      <span class="section-tag"><i class="fa-solid fa-users"></i> Our Clients</span>
+      <h2 class="section-title">Trusted By <span class="gradient-text">Industry Leaders</span></h2>
+      <p class="section-subtitle">We proudly serve a diverse portfolio of distinguished organizations.</p>
+    </div>
+    <div class="clients-list">
+      <ul class="client-names">
+        <li>Malabar Gold</li>
+        <li>Malabar Medical College</li>
+        <li>Rawabi</li>
+        <li>Index</li>
+        <li>Acto Logistics</li>
+        <li>BlueMax Logistics</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <!-- Animated Workflow Timeline -->
+  <section class="workflow-section" id="workflow">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-diagram-project"></i> Proven Methodology</span>
+        <h2 class="section-title">Our Agile <span class="gradient-text">Execution Process</span></h2>
+        <p class="section-subtitle">How we take your idea from strategic discovery to high-scale production deployment.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h4>1. Discovery</h4>
+          <p>Architectural roadmap & requirement analysis.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h4>2. UX/UI Design</h4>
+          <p>Interactive wireframes & glassmorphic prototypes.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fa-solid fa-code"></i></div>
+          <h4>3. Agile Dev</h4>
+          <p>Clean code sprints with automated CI/CD pipelines.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
+          <h4>4. QA & Security</h4>
+          <p>Penetration testing & performance auditing.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-icon"><i class="fa-solid fa-rocket"></i></div>
+          <h4>5. Launch & Scale</h4>
+          <p>Cloud deployment with 24/7 SLA monitoring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Carousel -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-star"></i> Endorsements</span>
+        <h2 class="section-title">Trusted By <span class="gradient-text">Industry Leaders</span></h2>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">
+          "Codeme Solutions delivered our Enterprise ERP and Custom Mobile App ahead of schedule. Their attention to UX detail, backend scalability, and automated CRM pipelines transformed our operational efficiency."
+        </p>
+        <div class="testimonial-user">
+          <div class="user-avatar">MR</div>
+          <div class="user-info">
+            <h5>Marcus Vance</h5>
+            <p>CTO, Global Logistics Corp</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Consultation Form -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <span class="section-tag"><i class="fa-solid fa-headset"></i> Get In Touch</span>
+          <h2 class="section-title" style="font-size:2.2rem;">Let's Build Your Next Digital System</h2>
+          <p style="color:#94a3b8; margin-bottom:36px;">Ready to elevate your digital presence or deploy enterprise ERP/CRM infrastructure? Reach out to our solution architects today.</p>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h5 style="font-size:0.95rem;">Email Inquiry</h5>
+              <p style="color:#94a3b8; font-size:0.875rem;">contact@auratech-solutions.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h5 style="font-size:0.95rem;">Global Hotline</h5>
+              <p style="color:#94a3b8; font-size:0.875rem;">+1 (800) 482-9320</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <h5 style="font-size:0.95rem;">Headquarters</h5>
+              <p style="color:#94a3b8; font-size:0.875rem;">Tech Innovation Tower, Floor 42, San Francisco, CA</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="agencyContactForm">
+          <h3 style="font-size:1.5rem; margin-bottom:10px;">Schedule Consultation</h3>
+
+          <div class="form-group">
+            <label for="contactName">Full Name *</label>
+            <input type="text" id="contactName" class="form-input" placeholder="e.g. Alexander Wright" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contactEmail">Work Email *</label>
+            <input type="email" id="contactEmail" class="form-input" placeholder="alexander@company.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contactServiceSelect">Required Service</label>
+            <select id="contactServiceSelect" class="form-input">
+              <option value="Mobile App Development">Mobile App Development</option>
+              <option value="Web Design & Development">Web Designing & Development</option>
+              <option value="E-Commerce Development">E-Commerce Development</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="CRM Solution">CRM Solution</option>
+              <option value="Enterprise ERP System">Enterprise ERP System</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage">Project Details & Objectives</label>
+            <textarea id="contactMessage" class="form-input" placeholder="Tell us about your project requirements, target timeline, and goals..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> Send Consultation Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="assets/codeme-logo-light.png" alt="CodeMe Logo" class="logo-img logo-light" />
+          </a>
+          <p>Premier enterprise digital agency crafting modern mobile apps, web engineering, e-commerce, digital marketing, CRM, and ERP systems.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Core Services</h4>
+          <ul>
+            <li><a href="#services">Mobile App Development</a></li>
+            <li><a href="#services">Web Design & Dev</a></li>
+            <li><a href="#services">E-Commerce Platforms</a></li>
+            <li><a href="#services">Digital Marketing</a></li>
+            <li><a href="#services">Custom CRM Solutions</a></li>
+            <li><a href="#services">Enterprise ERP Systems</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Interactive Tools</h4>
+          <ul>
+            <li><a href="#demo">Live CRM Demo Suite</a></li>
+            <li><a href="#demo">Live ERP Financial Chart</a></li>
+            <li><a href="#portfolio">Case Study Archive</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#workflow">Our Workflow</a></li>
+            <li><a href="#portfolio">Client Reviews</a></li>
+            <li><a href="#contact">Contact Support</a></li>
+            <li><a href="#">Privacy & SLA Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Codeme Solutions Inc. All rights reserved. Built with precision, elegance, and rich animations.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Case Study Modal -->
+  <div class="modal-overlay" id="portfolioModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <span class="section-tag" id="modalCat">Category</span>
+      <h2 style="font-size:1.8rem; margin:14px 0;" id="modalTitle">Project Title</h2>
+      <p style="color:#94a3b8; font-size:1rem; line-height:1.7;" id="modalDesc">Detailed description...</p>
+      <div style="margin-top:24px; display:flex; gap:16px;">
+        <a href="#contact" class="btn btn-primary" onclick="document.getElementById('portfolioModal').classList.remove('active')">
+          Request Similar Solution
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Message -->
+  <div class="toast-msg" id="toastMsg">
+    Notification message
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="main.js"></script>
+</body>
+</html>
