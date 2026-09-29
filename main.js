@@ -631,7 +631,7 @@ function initTransformAccordion() {
    Scroll Reveal Observer
    ========================================================================== */
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.service-card, .transform-card, .portfolio-card, .section-header, .timeline-step, .tech-card, .estimator-step-card, .estimator-summary-card, .pricing-card, .faq-item, .why-card, .why-stats-banner, .why-quote-banner, .why-trust-bar, .about-bento-card, .about-split-content');
+  const revealElements = document.querySelectorAll('.service-card, .transform-card, .portfolio-card, .section-header, .timeline-step, .tech-card, .estimator-step-card, .estimator-summary-card, .pricing-card, .faq-item, .why-card, .why-stats-banner, .why-quote-banner, .why-trust-bar, .about-bento-card, .about-split-content, .security-standard-card, .security-audit-card, .approach-visual-card, .approach-left-col');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
