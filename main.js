@@ -132,6 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. FAQ Accordion
   initFaqAccordion();
 
+  // 7b. Industries & Services Transform with AI Accordion
+  initTransformAccordion();
+
   // 8. Contact Form Validation & Toast Notification
   initContactForm();
 
@@ -588,10 +591,47 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
+   Industries & Services Transform with AI Accordion
+   ========================================================================== */
+function initTransformAccordion() {
+  const transformCards = document.querySelectorAll('.transform-card');
+
+  transformCards.forEach(card => {
+    const header = card.querySelector('.transform-card-header');
+    const toggleBtn = card.querySelector('.transform-toggle-btn');
+    const toggleIcon = toggleBtn ? toggleBtn.querySelector('i') : null;
+
+    if (!header) return;
+
+    header.addEventListener('click', () => {
+      const isAlreadyActive = card.classList.contains('active');
+
+      // Close other accordion cards and update icons
+      transformCards.forEach(c => {
+        c.classList.remove('active');
+        const btn = c.querySelector('.transform-toggle-btn');
+        const icon = btn ? btn.querySelector('i') : null;
+        if (icon) {
+          icon.className = 'fa-solid fa-chevron-down';
+        }
+      });
+
+      // Toggle clicked card
+      if (!isAlreadyActive) {
+        card.classList.add('active');
+        if (toggleIcon) {
+          toggleIcon.className = 'fa-solid fa-chevron-up';
+        }
+      }
+    });
+  });
+}
+
+/* ==========================================================================
    Scroll Reveal Observer
    ========================================================================== */
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.service-card, .portfolio-card, .section-header, .timeline-step, .tech-card, .estimator-step-card, .estimator-summary-card, .pricing-card, .faq-item, .why-card, .why-stats-banner, .why-quote-banner, .why-trust-bar');
+  const revealElements = document.querySelectorAll('.service-card, .transform-card, .portfolio-card, .section-header, .timeline-step, .tech-card, .estimator-step-card, .estimator-summary-card, .pricing-card, .faq-item, .why-card, .why-stats-banner, .why-quote-banner, .why-trust-bar, .about-bento-card, .about-split-content');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
