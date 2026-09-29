@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="100%" height="100%">
+  <defs>
+    <style>
+      .blue-body { fill: #0052fe; }
+      .chevron { fill: none; stroke: #ffffff; stroke-width: 32; stroke-linecap: square; stroke-linejoin: miter; stroke-miterlimit: 10; }
+    </style>
+  </defs>
+  <!-- Blue Pacman Circle Body -->
+  <path class="blue-body" d="M 128 128 L 218 38 A 120 120 0 1 0 218 218 Z"/>
+  <!-- White Left Chevron Bracket -->
+  <polyline class="chevron" points="144,64 80,128 144,192" />
+</svg>
