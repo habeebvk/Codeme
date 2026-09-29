@@ -4,75 +4,138 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Navbar Scroll Effect & Active Link Highlight
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+  // 1. Navbar Scroll Effect
+  const navbar = document.querySelector('.navbar') || document.querySelector('.navbar-inner');
+  const handleScroll = () => {
+    if (!navbar) return;
+    if (window.scrollY > 30) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-  });
+  };
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
 
-  // Mobile menu toggle
-  const mobileToggle = document.querySelector('.mobile-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-      if (navLinks.style.display === 'flex') {
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = 'rgba(7, 9, 19, 0.95)';
-        navLinks.style.padding = '20px';
-        navLinks.style.backdropFilter = 'blur(20px)';
+  // Mobile menu toggle & drawer handling
+  const navToggle = document.getElementById('navToggle') || document.querySelector('.navbar-toggle') || document.querySelector('.mobile-toggle');
+  const navMenu = document.getElementById('navMenu') || document.querySelector('.navbar-menu') || document.querySelector('.nav-links');
+  const navOverlay = document.getElementById('navOverlay');
+
+  const closeMobileMenu = () => {
+    if (navToggle) navToggle.classList.remove('active');
+    if (navMenu) navMenu.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  const openMobileMenu = () => {
+    if (navToggle) navToggle.classList.add('active');
+    if (navMenu) navMenu.classList.add('active');
+    if (navOverlay) navOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = navMenu.classList.contains('active');
+      if (isActive) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
       }
     });
   }
-  // Theme toggle (light/dark) with persistence and icons
-  const themeToggle = document.getElementById('theme-toggle');
+
+  if (navOverlay) {
+    navOverlay.addEventListener('click', closeMobileMenu);
+  }
+
+  // Mobile Accordion for dropdowns
+  const dropdownItems = document.querySelectorAll('.nav-has-dropdown');
+  dropdownItems.forEach((item) => {
+    const link = item.querySelector('.custom-nav-link');
+    if (link) {
+      link.addEventListener('click', (e) => {
+        // Only treat as accordion toggle on mobile screens (< 1040px)
+        if (window.innerWidth <= 1040) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = item.classList.contains('is-open');
+          // Close other open accordions
+          dropdownItems.forEach((other) => {
+            if (other !== item) other.classList.remove('is-open');
+          });
+          item.classList.toggle('is-open', !isOpen);
+        }
+      });
+    }
+  });
+
+  // Close mobile menu when clicking normal links
+  if (navMenu) {
+    navMenu.querySelectorAll('a:not(.nav-has-dropdown > a)').forEach((a) => {
+      a.addEventListener('click', () => {
+        if (window.innerWidth <= 1040) {
+          closeMobileMenu();
+        }
+      });
+    });
+  }
+
+  // Close dropdowns on outside click or Escape key
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-has-dropdown')) {
+      dropdownItems.forEach((item) => item.classList.remove('is-open'));
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+      dropdownItems.forEach((item) => item.classList.remove('is-open'));
+    }
+  });
+
+  // Theme toggle (light/dark) with persistence and icon syncing
+  const themeToggle = document.getElementById('themeToggle') || document.getElementById('theme-toggle');
   
   // Check stored theme
   const savedTheme = localStorage.getItem('codeme_theme');
   if (savedTheme === 'light') {
     document.documentElement.classList.add('light-mode');
-    if (themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i> Dark Mode';
-  } else if (themeToggle) {
-    themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i> Light Mode';
   }
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       const isLight = document.documentElement.classList.toggle('light-mode');
-      if (isLight) {
-        themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i> Dark Mode';
-        localStorage.setItem('codeme_theme', 'light');
-      } else {
-        themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i> Light Mode';
-        localStorage.setItem('codeme_theme', 'dark');
-      }
+      localStorage.setItem('codeme_theme', isLight ? 'light' : 'dark');
       window.dispatchEvent(new CustomEvent('themechange', { detail: { isLight } }));
     });
   }
   // 2. Interactive Canvas Particle Background
   initParticleCanvas();
 
-  // 3. Live CRM & ERP Demo Widget Interactivity & Chart.js
+  // 3. Tech Stack & Industry Vertical Filter Tabs
+  initTechStackTabs();
+
+  // 4. Live CRM & ERP Demo Widget Interactivity & Chart.js
   initDemoWidget();
 
-  // 4. Interactive Scope & Cost Estimator Engine
+  // 5. Interactive Scope & Cost Estimator Engine
   initCostEstimator();
 
-  // 5. Portfolio Filtering & Modal Popup
+  // 6. Portfolio Filtering & Modal Popup
   initPortfolioModal();
 
-  // 6. Contact Form Validation & Toast Notification
+  // 7. FAQ Accordion
+  initFaqAccordion();
+
+  // 8. Contact Form Validation & Toast Notification
   initContactForm();
 
-  // 7. Scroll Reveal Animation Observer
+  // 9. Scroll Reveal Animation Observer
   initScrollReveal();
 });
 
@@ -479,10 +542,56 @@ function initContactForm() {
 }
 
 /* ==========================================================================
-   6. Scroll Reveal Observer
+   Tech Stack & Industry Vertical Matrix Tabs
+   ========================================================================== */
+function initTechStackTabs() {
+  const tabBtns = document.querySelectorAll('.tech-tab-btn');
+  const techCards = document.querySelectorAll('.tech-card');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-tech');
+      techCards.forEach(card => {
+        const cat = card.getAttribute('data-tech-cat');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+/* ==========================================================================
+   FAQ Accordion Interactivity
+   ========================================================================== */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (!question) return;
+
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      faqItems.forEach(i => i.classList.remove('active'));
+
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   Scroll Reveal Observer
    ========================================================================== */
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.service-card, .portfolio-card, .section-header, .timeline-step, .estimator-card');
+  const revealElements = document.querySelectorAll('.service-card, .portfolio-card, .section-header, .timeline-step, .tech-card, .estimator-step-card, .estimator-summary-card, .pricing-card, .faq-item, .why-card, .why-stats-banner, .why-quote-banner, .why-trust-bar');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
